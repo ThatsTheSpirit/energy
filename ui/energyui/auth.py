@@ -16,6 +16,8 @@ class Ui_DialogAuth(object):
         DialogAuth.setObjectName("DialogAuth")
         DialogAuth.setWindowModality(QtCore.Qt.ApplicationModal)
         DialogAuth.resize(382, 257)
+        DialogAuth.setMinimumSize(QtCore.QSize(382, 257))
+        DialogAuth.setMaximumSize(QtCore.QSize(382, 257))
         DialogAuth.setModal(True)
         self.pushButtonLogIn = QtWidgets.QPushButton(DialogAuth)
         self.pushButtonLogIn.setGeometry(QtCore.QRect(80, 160, 81, 24))
@@ -25,16 +27,14 @@ class Ui_DialogAuth(object):
         self.pushButtonRegister.setObjectName("pushButtonRegister")
         self.lineEditPass = QtWidgets.QLineEdit(DialogAuth)
         self.lineEditPass.setGeometry(QtCore.QRect(80, 120, 201, 22))
-        self.lineEditPass.setObjectName("lineEditPass")
         self.lineEditPass.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.lineEditPass.setObjectName("lineEditPass")
         self.lineEditLogin = QtWidgets.QLineEdit(DialogAuth)
         self.lineEditLogin.setGeometry(QtCore.QRect(80, 60, 201, 22))
         self.lineEditLogin.setObjectName("lineEditLogin")
 
         self.retranslateUi(DialogAuth)
         QtCore.QMetaObject.connectSlotsByName(DialogAuth)
-
-
 
     def retranslateUi(self, DialogAuth):
         _translate = QtCore.QCoreApplication.translate
@@ -43,3 +43,4 @@ class Ui_DialogAuth(object):
         self.pushButtonRegister.setText(_translate("DialogAuth", "Регистрация"))
         self.lineEditPass.setPlaceholderText(_translate("DialogAuth", "Пароль..."))
         self.lineEditLogin.setPlaceholderText(_translate("DialogAuth", "Логин..."))
+import resources_rc
