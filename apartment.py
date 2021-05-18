@@ -5,6 +5,7 @@ class Apartment:
     def __init__(self, hallways, floors, flats, lifts_per_hallway, lift_power):
         self._hallways = hallways
         self._flats = flats
+        self._lifts_per_hallway = lifts_per_hallway
         self._floors = floors
         self._lifts = lifts_per_hallway * hallways
         self._lift_power = lift_power
@@ -82,3 +83,23 @@ class Apartment:
     @property
     def pl(self):
         return self._pl
+
+    @property
+    def hallways(self):
+        return self._hallways
+
+    @property
+    def floors(self):
+        return self._floors
+
+    @property
+    def flats(self):
+        return self._flats
+
+    @property
+    def lifts_per_hallway(self):
+        return self._lifts_per_hallway
+
+    @property
+    def lift_power(self):
+        return self._lift_power
