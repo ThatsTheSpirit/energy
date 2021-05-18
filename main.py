@@ -35,6 +35,19 @@ class MainWindow(QtWidgets.QMainWindow):
         ap = Apartment(hallways, floors, flats, lifts_per_hallway, lifts_power)
         self.ui.lineEditResult.setText(f'{ap.p_p_zh_zd}')
 
+        self.ui.tableWidget.insertRow(self.ui.tableWidget.rowCount())
+        self.ui.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem('1'))
+        self.ui.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(str(hallways)))
+        self.ui.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(str(floors)))
+        self.ui.tableWidget.setItem(0, 3, QtWidgets.QTableWidgetItem(str(flats)))
+        self.ui.tableWidget.setItem(0, 4, QtWidgets.QTableWidgetItem(str(ap.p_kv_ud)))
+        self.ui.tableWidget.setItem(0, 5, QtWidgets.QTableWidgetItem(str(ap.lifts)))
+        self.ui.tableWidget.setItem(0, 6, QtWidgets.QTableWidgetItem(str(lifts_power)))
+        self.ui.tableWidget.setItem(0, 7, QtWidgets.QTableWidgetItem(str(ap.k_s_l)))
+        self.ui.tableWidget.setItem(0, 8, QtWidgets.QTableWidgetItem(str(ap.p_p_kv)))
+        self.ui.tableWidget.setItem(0, 9, QtWidgets.QTableWidgetItem(str(ap.p_pl)))
+        self.ui.tableWidget.setItem(0, 10, QtWidgets.QTableWidgetItem(str(ap.p_p_zh_zd)))
+
 
 class AuthWindow(QtWidgets.QDialog):
     def __init__(self, parent=None):

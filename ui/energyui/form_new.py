@@ -176,7 +176,7 @@ class Ui_MainUi(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainUi)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainUi)
 
     def retranslateUi(self, MainUi):
@@ -217,7 +217,11 @@ class Ui_MainUi(object):
         self.menu.setTitle(_translate("MainUi", "Файл"))
         self.menuHelp.setTitle(_translate("MainUi", "Помощь"))
         self.actionOpen.setText(_translate("MainUi", "Открыть"))
+        self.actionOpen.setShortcut(_translate("MainUi", "Ctrl+O"))
         self.actionSave.setText(_translate("MainUi", "Сохранить"))
+        self.actionSave.setShortcut(_translate("MainUi", "Ctrl+S"))
         self.actionAbout.setText(_translate("MainUi", "О программе"))
+        self.actionAbout.setShortcut(_translate("MainUi", "Ctrl+I"))
         self.actionExit.setText(_translate("MainUi", "Выход"))
+        self.actionExit.setShortcut(_translate("MainUi", "Ctrl+Q"))
 import resources_rc

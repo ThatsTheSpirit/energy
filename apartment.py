@@ -9,6 +9,7 @@ class Apartment:
         self._lifts = lifts_per_hallway * hallways
         self._lift_power = lift_power
         self._k_s_l: float = 0.
+        self._pl: float = 0
         self._p_kv_ud: float = 0.
         self._k_y = 0.9
         self._p_p_kv: float = 0.
@@ -22,7 +23,8 @@ class Apartment:
 
         self._get_k_s_l()
 
-        self._get_p_rl()
+        self._get_pl()
+        self._get_p_pl()
         self._get_p_p_zh_zd()
 
     def _get_k_s_l(self):
@@ -44,15 +46,18 @@ class Apartment:
     def _get_p_p_kv(self):
         self._p_p_kv = self._p_kv_ud * self._flats
 
-    def _get_p_rl(self):
-        self._p_pl = self._k_s_l * self._lifts * self._lift_power
+    def _get_pl(self):
+        self._pl = self._lifts * self._lift_power
+
+    def _get_p_pl(self):
+        self._p_pl = self._k_s_l * self._pl
 
     def _get_p_p_zh_zd(self):
         self._p_p_zh_zd = self._p_p_kv + self._k_y * self._p_pl
 
     @property
     def k_s_l(self):
-        return self.k_s_l
+        return self._k_s_l
 
     @property
     def p_kv_ud(self):
@@ -69,3 +74,11 @@ class Apartment:
     @property
     def p_p_zh_zd(self):
         return self._p_p_zh_zd
+
+    @property
+    def lifts(self):
+        return self._lifts
+
+    @property
+    def pl(self):
+        return self._pl
