@@ -26,10 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.actionOpen.triggered.connect(self.readFromFile)
         self.ui.actionSave.triggered.connect(self.saveToFile)
 
-        # self.dialog = Ui_DialogAuth()
-        # self.dialog = AuthWindow()
-        # self.dialog.show()
-        # self.dialog.exec_()
+        self._rows = 0
 
     def pushButtonCalcClicked(self):
         flats = self.ui.spinBoxFlats.value()
@@ -69,7 +66,9 @@ class MainWindow(QtWidgets.QMainWindow):
                                         float(line['lifts_per_hallway']),
                                         float(line['lift_power'])))
 
-        self.ui.tableWidget.setRowCount(len(aparts))
+        self._rows = len(aparts)  # нужно для корректного вывода без пустых строк (в файл)
+
+        self.ui.tableWidget.setRowCount(self._rows)
         for i, ap in enumerate(aparts):
             self.showTable(ap, i)
 
@@ -84,7 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
             writer = csv.DictWriter(csvfile, fieldnames=headersOutput)
 
             writer.writeheader()
-            for row in range(self.ui.tableWidget.rowCount()):
+            for row in range(self._rows):
                 rowdata = []
                 for col in range(self.ui.tableWidget.columnCount()):
                     item = self.ui.tableWidget.item(row, col)
