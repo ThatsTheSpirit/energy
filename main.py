@@ -1,5 +1,4 @@
 import sys
-import typing
 import qdarkstyle
 from PyQt5 import QtWidgets
 import csv
@@ -73,6 +72,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.showTable(ap, i)
 
     def saveToFile(self):
+
         fileName = QtWidgets.QFileDialog.getSaveFileName(self,
                                                          "Save File", QDir.homePath() + "/export.csv",
                                                          "CSV Files (*.csv)")
